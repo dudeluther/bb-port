@@ -6,201 +6,666 @@
 <meta name="theme-color" content="#293f7d">
 <link id="game-icon" rel="icon">
 <title>Block Blast! · port by dudeluther</title>
+
 <style>
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#18274e;font-family:Arial,sans-serif}
-body{display:flex;justify-content:center}
-#GameDiv{width:100%;height:100%;background:#3e5594}
-canvas{display:block;touch-action:none}
-#splash{position:fixed;inset:0;display:grid;place-content:center;color:white;text-align:center;background:#293f7d}
-#splash h1{font-size:38px;margin:0 0 24px;color:#ffd154}
-.progress-bar{height:8px;width:240px;background:#182953;border-radius:6px;overflow:hidden}
-.progress-bar span{display:block;height:100%;width:0;background:#ffb83c}
-#status{font-size:13px;color:#d4dcfa;margin-top:16px}
-#fatal{display:none;position:fixed;inset:20px;z-index:20;background:#19264e;color:#fff;padding:24px;white-space:pre-wrap;overflow:auto}
+html,body {
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#18274e;
+  font-family:Arial,sans-serif;
+}
+body {
+  display:flex;
+  justify-content:center;
+}
+#GameDiv {
+  width:100%;
+  height:100%;
+  background:#3e5594;
+}
+canvas {
+  display:block;
+  touch-action:none;
+}
+#splash {
+  position:fixed;
+  inset:0;
+  display:grid;
+  place-content:center;
+  color:white;
+  text-align:center;
+  background:#293f7d;
+}
+#splash h1 {
+  font-size:38px;
+  margin:0 0 24px;
+  color:#ffd154;
+}
+.progress-bar {
+  height:8px;
+  width:240px;
+  background:#182953;
+  border-radius:6px;
+  overflow:hidden;
+}
+.progress-bar span {
+  display:block;
+  height:100%;
+  width:0;
+  background:#ffb83c;
+}
+#status {
+  font-size:13px;
+  color:#d4dcfa;
+  margin-top:16px;
+}
+#fatal {
+  display:none;
+  position:fixed;
+  inset:20px;
+  z-index:20;
+  background:#19264e;
+  color:#fff;
+  padding:24px;
+  white-space:pre-wrap;
+  overflow:auto;
+}
 </style>
 </head>
+
 <body>
-<div id="GameDiv"><canvas id="GameCanvas" tabindex="0"></canvas></div>
-<div id="splash"><h1>Block Blast!</h1><div class="progress-bar"><span></span></div><div id="status">Loading the game…</div></div>
+<div id="GameDiv">
+  <canvas id="GameCanvas" tabindex="0"></canvas>
+</div>
+
+<div id="splash">
+  <h1>Block Blast!</h1>
+  <div class="progress-bar"><span></span></div>
+  <div id="status">Loading the game…</div>
+</div>
+
 <pre id="fatal"></pre>
+
 <script>
-// Use a relative folder locally, or replace this with your jsDelivr asset URL.
-// Example: https://cdn.jsdelivr.net/gh/USERNAME/REPOSITORY@COMMIT/assets/
-window.BLOCK_BLAST_ASSET_BASE = "./assets/";
+window.BLOCK_BLAST_ASSET_BASE =
+  "https://cdn.jsdelivr.net/gh/dudeluther/bb-port@main/assets/";
+
+window.BLOCK_BLAST_FALLBACK_BASE =
+  "https://raw.githubusercontent.com/dudeluther/bb-port/main/assets/";
 </script>
+
 <script>
 (() => {
-  const configuredBase=window.BLOCK_BLAST_ASSET_BASE;
-  const assetBase=configuredBase?new URL(configuredBase.replace(/\/?$/,'/'),location.href).href:null;
-  const assetURL=path=>assetBase?new URL(path,assetBase).href:path;
-  let pointerType='mouse';
-  window.addEventListener('pointerdown',event=>{pointerType=event.pointerType;},true);
-  function installMouseDragging(){
-    const prototype=window.__require('BlocksProducerTouch').default.prototype;
-    if(prototype._portMouseDragging)return;
-    prototype._portMouseDragging=true;
-    const start=prototype.onTouchStart,move=prototype.onTouchMove;
-    const lift=prototype.performTapShift,adjust=prototype.changeSelectItemPos;
-    // Keep the point actually grabbed underneath the pointer, even while the
-    // tray piece grows to board size or the canvas/parent is scaled.
-    function align(controller,item){
-      const parent=item.parent;
-      const pointer=parent.convertToNodeSpaceAR(controller._portPointerWorld);
-      const grabbed=parent.convertToNodeSpaceAR(item.convertToWorldSpaceAR(controller._portGrabLocal));
-      item.setPosition(item.x+pointer.x-grabbed.x,item.y+pointer.y-grabbed.y);
-      controller._targetPosX=item.x;
-      controller._targetPosY=item.y;
-    }
-    prototype.onTouchStart=function(event){
-      this._portMouseDrag=pointerType!=='touch';
-      this._portPointerWorld=event.getLocation();
-      this._portGrabLocal=null;
-      const result=start.call(this,event);
-      const item=this._selectItem;
-      if(this._portMouseDrag && item){
-        this._portGrabLocal ||= item.convertToNodeSpaceAR(this._portPointerWorld);
-        this.stopTapShiftTween();
-        item.scaleX=item.scaleY=1;
-        align(this,item);
+  const configuredBase = window.BLOCK_BLAST_ASSET_BASE;
+  const assetBase = configuredBase
+    ? new URL(configuredBase.replace(/\/?$/, "/"), location.href).href
+    : null;
+
+  const assetURL = path =>
+    assetBase ? new URL(path, assetBase).href : path;
+
+  const fallbackBase = window.BLOCK_BLAST_FALLBACK_BASE
+    ? new URL(window.BLOCK_BLAST_FALLBACK_BASE, location.href).href
+    : null;
+
+  const nativeFetch = window.fetch.bind(window);
+  let useFallback = false;
+
+  // Use GitHub directly if jsDelivr rejects an asset.
+  if (fallbackBase) {
+    window.fetch = async (input, options) => {
+      const url =
+        typeof input === "string"
+          ? new URL(input, location.href).href
+          : input instanceof URL
+            ? input.href
+            : input.url;
+
+      if (!assetBase || !url.startsWith(assetBase)) {
+        return nativeFetch(input, options);
       }
-      return result;
-    };
-    prototype.performTapShift=function(item,y){
-      if(!this._portMouseDrag)return lift.call(this,item,y);
-      this._portGrabLocal=item.convertToNodeSpaceAR(this._portPointerWorld);
-      item.scaleX=item.scaleY=1;
-      align(this,item);
-    };
-    prototype.onTouchMove=function(event){
-      if(this._portMouseDrag)this._portPointerWorld=event.getLocation();
-      return move.call(this,event);
-    };
-    prototype.changeSelectItemPos=function(item){
-      if(!this._portMouseDrag || !this._portGrabLocal)return adjust.call(this,item);
-      // This hook runs before the original board collision and drop-preview
-      // calculations, so the displayed piece and the placement agree.
-      align(this,item);
+
+      const fallback = new URL(
+        url.slice(assetBase.length),
+        fallbackBase
+      ).href;
+
+      if (useFallback) {
+        return nativeFetch(fallback, options);
+      }
+
+      try {
+        const response = await nativeFetch(input, options);
+
+        if (response.ok) {
+          return response;
+        }
+
+        if (response.status === 403) {
+          useFallback = true;
+          window.portDiagnostics.fallbackUsed = true;
+        }
+      } catch {}
+
+      return nativeFetch(fallback, options);
     };
   }
-  const log=console.log.bind(console), warn=console.warn.bind(console);
-  window.portDiagnostics={errors:[],startedAt:Date.now()};
-  window.addEventListener('error',e=>{window.portDiagnostics.errors.push(e.error?.stack||e.message);log('[Port error]',e.error?.stack||e.message);});
-  window.addEventListener('unhandledrejection',e=>{window.portDiagnostics.errors.push(String(e.reason?.stack||e.reason));log('[Port rejection]',e.reason?.stack||e.reason);});
-  // Retain diagnostics: the Android release bundle otherwise silences the console.
-  Object.defineProperty(console,'log',{get:()=>log,set:()=>{},configurable:true});
-  Object.defineProperty(console,'warn',{get:()=>warn,set:()=>{},configurable:true});
-  // Android analytics, promotions and cloud personalization have no browser host.
-  // Keep their optional requests local; the packaged game supplies defaults.
-  const offlineResponse=URL.createObjectURL(new Blob(['{"experimentDataMap":{}}'],{type:'application/json'}));
-  const open=XMLHttpRequest.prototype.open;
-  XMLHttpRequest.prototype.open=function(method,url,...rest){
-    const target=new URL(url,location.href);
-    if(target.origin!==location.origin && !(assetBase && target.href.startsWith(assetBase))){url=offlineResponse;method='GET';}
-    return open.call(this,method,url,...rest);
+
+  const blobAssets = new Map();
+
+  window.portAssetBlob = url => {
+    url = String(url);
+
+    if (!blobAssets.has(url)) {
+      const task = (async () => {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+          throw new Error("Asset " + response.status + ": " + url);
+        }
+
+        const type = /\.js(?:\?|$)/.test(url)
+          ? "text/javascript"
+          : response.headers.get("content-type") ||
+            "application/octet-stream";
+
+        return URL.createObjectURL(
+          new Blob([await response.arrayBuffer()], { type })
+        );
+      })().catch(error => {
+        blobAssets.delete(url);
+        throw error;
+      });
+
+      blobAssets.set(url, task);
+    }
+
+    return blobAssets.get(url);
   };
-  window.startBrowserPort=async()=>{
-    const manifest=await fetch(assetURL('port-manifest.json')).then(r=>r.json());
-    const s=window._CCSettings;s.platform='web-mobile';s.server='';s.remoteBundles=[];
-    Object.assign(s.bundleVers,manifest.bundleVersions);
-    const load=cc.assetManager.loadBundle.bind(cc.assetManager);
-    const splitScriptLoads=new Map();
-    function preloadSplitScript(name){
-      if(splitScriptLoads.has(name))return splitScriptLoads.get(name);
-      const task=(async()=>{
-        const parts=await Promise.all(manifest.splitScripts[name].parts.map(async part=>{
-          const response=await fetch(assetURL(part));
-          if(!response.ok)throw new Error('Could not load script part: '+part);
-          return response.arrayBuffer();
-        }));
-        const url=URL.createObjectURL(new Blob(parts,{type:'text/javascript'}));
-        try{
-          await new Promise((resolve,reject)=>{
-            const script=document.createElement('script');script.src=url;
-            script.onload=()=>{script.remove();resolve();};
-            script.onerror=()=>{script.remove();reject(new Error('Could not initialize '+name));};
+
+  function installAssetTransport() {
+    if (!fallbackBase) return;
+
+    const downloader = cc.assetManager.downloader;
+    const register = downloader.register.bind(downloader);
+    const scriptHandler = downloader._downloaders[".js"];
+
+    const script = url =>
+      window.portAssetBlob(url).then(
+        blob =>
+          new Promise((resolve, reject) => {
+            scriptHandler(blob, {}, error => {
+              if (error) reject(error);
+              else resolve();
+            });
+          })
+      );
+
+    const wrap = (type, handler) => (url, options, done) => {
+      if (!String(url).startsWith(assetBase)) {
+        return handler(url, options, done);
+      }
+
+      window.portAssetBlob(url).then(
+        blob => handler(blob, options, done),
+        done
+      );
+    };
+
+    for (const [type, handler] of Object.entries(
+      downloader._downloaders
+    )) {
+      if (type !== "bundle") {
+        register(type, wrap(type, handler));
+      }
+    }
+
+    downloader.register = (type, handler) => {
+      if (typeof type === "object") {
+        for (const [name, fn] of Object.entries(type)) {
+          downloader.register(name, fn);
+        }
+        return;
+      }
+
+      return register(
+        type,
+        type === "bundle" ? handler : wrap(type, handler)
+      );
+    };
+
+    register("bundle", (url, options, done) => {
+      const name = cc.path.basename(url);
+
+      if (!/^https?:/.test(url)) {
+        url = assetURL(name);
+      }
+
+      const version = options.version || downloader.bundleVers[name];
+      const suffix = version ? "." + version : "";
+
+      Promise.all([
+        fetch(url + "/config" + suffix + ".json").then(response => {
+          if (!response.ok) {
+            throw new Error("Bundle " + response.status + ": " + name);
+          }
+          return response.json();
+        }),
+        script(url + "/index" + suffix + ".js")
+      ]).then(([config]) => {
+        config.base = url + "/";
+        done(null, config);
+      }, done);
+    });
+  }
+
+  let pointerType = "mouse";
+
+  window.addEventListener(
+    "pointerdown",
+    event => {
+      pointerType = event.pointerType;
+    },
+    true
+  );
+
+  function installMouseDragging() {
+    const prototype =
+      window.__require("BlocksProducerTouch").default.prototype;
+
+    if (prototype._portMouseDragging) return;
+    prototype._portMouseDragging = true;
+
+    const start = prototype.onTouchStart;
+    const move = prototype.onTouchMove;
+    const lift = prototype.performTapShift;
+    const adjust = prototype.changeSelectItemPos;
+
+    // Keep the exact grabbed point underneath the mouse.
+    function align(controller, item) {
+      const parent = item.parent;
+
+      const pointer = parent.convertToNodeSpaceAR(
+        controller._portPointerWorld
+      );
+
+      const grabbed = parent.convertToNodeSpaceAR(
+        item.convertToWorldSpaceAR(controller._portGrabLocal)
+      );
+
+      item.setPosition(
+        item.x + pointer.x - grabbed.x,
+        item.y + pointer.y - grabbed.y
+      );
+
+      controller._targetPosX = item.x;
+      controller._targetPosY = item.y;
+    }
+
+    prototype.onTouchStart = function(event) {
+      this._portMouseDrag = pointerType !== "touch";
+      this._portPointerWorld = event.getLocation();
+      this._portGrabLocal = null;
+
+      const result = start.call(this, event);
+      const item = this._selectItem;
+
+      if (this._portMouseDrag && item) {
+        this._portGrabLocal ||=
+          item.convertToNodeSpaceAR(this._portPointerWorld);
+
+        this.stopTapShiftTween();
+        item.scaleX = item.scaleY = 1;
+        align(this, item);
+      }
+
+      return result;
+    };
+
+    prototype.performTapShift = function(item, y) {
+      if (!this._portMouseDrag) {
+        return lift.call(this, item, y);
+      }
+
+      this._portGrabLocal =
+        item.convertToNodeSpaceAR(this._portPointerWorld);
+
+      item.scaleX = item.scaleY = 1;
+      align(this, item);
+    };
+
+    prototype.onTouchMove = function(event) {
+      if (this._portMouseDrag) {
+        this._portPointerWorld = event.getLocation();
+      }
+
+      return move.call(this, event);
+    };
+
+    prototype.changeSelectItemPos = function(item) {
+      if (!this._portMouseDrag || !this._portGrabLocal) {
+        return adjust.call(this, item);
+      }
+
+      // Runs before the board's collision and placement calculations.
+      align(this, item);
+    };
+  }
+
+  const log = console.log.bind(console);
+  const warn = console.warn.bind(console);
+
+  window.portDiagnostics = {
+    errors: [],
+    startedAt: Date.now()
+  };
+
+  window.addEventListener("error", event => {
+    const message = event.error?.stack || event.message;
+    window.portDiagnostics.errors.push(message);
+    log("[Port error]", message);
+  });
+
+  window.addEventListener("unhandledrejection", event => {
+    const message = String(event.reason?.stack || event.reason);
+    window.portDiagnostics.errors.push(message);
+    log("[Port rejection]", message);
+  });
+
+  Object.defineProperty(console, "log", {
+    get: () => log,
+    set: () => {},
+    configurable: true
+  });
+
+  Object.defineProperty(console, "warn", {
+    get: () => warn,
+    set: () => {},
+    configurable: true
+  });
+
+  // Keep optional Android service requests local.
+  const offlineResponse = URL.createObjectURL(
+    new Blob(['{"experimentDataMap":{}}'], {
+      type: "application/json"
+    })
+  );
+
+  const open = XMLHttpRequest.prototype.open;
+
+  XMLHttpRequest.prototype.open = function(method, url, ...rest) {
+    const target = new URL(url, location.href);
+
+    const isAsset =
+      assetBase && target.href.startsWith(assetBase);
+
+    const isFallbackAsset =
+      fallbackBase && target.href.startsWith(fallbackBase);
+
+    if (
+      target.origin !== location.origin &&
+      !isAsset &&
+      !isFallbackAsset
+    ) {
+      url = offlineResponse;
+      method = "GET";
+    }
+
+    return open.call(this, method, url, ...rest);
+  };
+
+  window.startBrowserPort = async () => {
+    const manifest = await fetch(
+      assetURL("port-manifest.json")
+    ).then(response => response.json());
+
+    const settings = window._CCSettings;
+    settings.platform = "web-mobile";
+    settings.server = "";
+    settings.remoteBundles = [];
+
+    // This exported editor-only script is empty.
+    settings.jsList = settings.jsList.filter(
+      path => path !== "assets/libs/macro.editor.d41d8.js"
+    );
+
+    Object.assign(settings.bundleVers, manifest.bundleVersions);
+
+    installAssetTransport();
+
+    const load = cc.assetManager.loadBundle.bind(cc.assetManager);
+    const splitScriptLoads = new Map();
+
+    function preloadSplitScript(name) {
+      if (splitScriptLoads.has(name)) {
+        return splitScriptLoads.get(name);
+      }
+
+      const task = (async () => {
+        // Download all parts in parallel, then merge in manifest order.
+        const parts = await Promise.all(
+          manifest.splitScripts[name].parts.map(async part => {
+            const response = await fetch(assetURL(part));
+
+            if (!response.ok) {
+              throw new Error("Could not load script part: " + part);
+            }
+
+            return response.arrayBuffer();
+          })
+        );
+
+        const url = URL.createObjectURL(
+          new Blob(parts, { type: "text/javascript" })
+        );
+
+        try {
+          await new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src = url;
+
+            script.onload = () => {
+              script.remove();
+              resolve();
+            };
+
+            script.onerror = () => {
+              script.remove();
+              reject(new Error("Could not initialize " + name));
+            };
+
             document.head.appendChild(script);
           });
-        }finally{URL.revokeObjectURL(url);}
-      })();
-      splitScriptLoads.set(name,task);return task;
-    }
-    if(assetBase){
-      const loadScript=cc.assetManager.loadScript.bind(cc.assetManager);
-      cc.assetManager.loadScript=(urls,...args)=>loadScript((Array.isArray(urls)?urls:[urls]).map(url=>url.startsWith('src/')?assetURL(url):url),...args);
-    }
-    cc.assetManager.loadBundle=(name,options,callback)=>{
-      if(/^https?:/.test(name)&&name.includes('/remote/'))name=name.split('/').filter(Boolean).pop();
-      if(typeof options==='function'){callback=options;options={};}
-      options={...options};
-      if(manifest.bundleVersions[name])options.version=manifest.bundleVersions[name];
-      const bundleName=name;
-      if(assetBase && !/^https?:/.test(name))name=assetURL(name);
-      const begin=()=>load(name,options,(error,bundle)=>{
-        // The Android build skips its home screen until a progression flag is
-        // unlocked. On the browser, always start at the original mode menu.
-        if(!error && bundleName==='main'){
-          window.storage.setItem('intoModeChoice',true);
-          installMouseDragging();
+        } finally {
+          URL.revokeObjectURL(url);
         }
-        callback?.(error,bundle);
-      });
-      if(manifest.splitScripts?.[bundleName])return preloadSplitScript(bundleName).then(begin,error=>callback?.(error));
+      })();
+
+      splitScriptLoads.set(name, task);
+      return task;
+    }
+
+    if (assetBase) {
+      const loadScript =
+        cc.assetManager.loadScript.bind(cc.assetManager);
+
+      cc.assetManager.loadScript = (urls, ...args) => {
+        const list = Array.isArray(urls) ? urls : [urls];
+
+        return loadScript(
+          list.map(url =>
+            url.startsWith("src/") ? assetURL(url) : url
+          ),
+          ...args
+        );
+      };
+    }
+
+    cc.assetManager.loadBundle = (name, options, callback) => {
+      if (/^https?:/.test(name) && name.includes("/remote/")) {
+        name = name.split("/").filter(Boolean).pop();
+      }
+
+      if (typeof options === "function") {
+        callback = options;
+        options = {};
+      }
+
+      options = { ...options };
+
+      if (manifest.bundleVersions[name]) {
+        options.version = manifest.bundleVersions[name];
+      }
+
+      const bundleName = name;
+
+      if (assetBase && !/^https?:/.test(name)) {
+        name = assetURL(name);
+      }
+
+      const begin = () =>
+        load(name, options, (error, bundle) => {
+          if (!error && bundleName === "main") {
+            window.storage.setItem("intoModeChoice", true);
+            installMouseDragging();
+          }
+
+          callback?.(error, bundle);
+        });
+
+      if (manifest.splitScripts?.[bundleName]) {
+        return preloadSplitScript(bundleName).then(
+          begin,
+          error => callback?.(error)
+        );
+      }
+
       return begin();
     };
-    cc.macro.ENABLE_WEBGL_ANTIALIAS=true;
-    // Reuse the original Cocos buttons and their normal press animation.
-    cc.director.on(cc.Director.EVENT_AFTER_UPDATE,()=>{
-      const group=cc.find('persist/uiLayer/homePage/btn_layout');
-      const credit=group?.getChildByName('GameLobbyAddMoreGame');
-      if(!credit || credit._portLinked)return;
-      credit._portLinked=true;
-      const layout=group.getComponent(cc.Layout);
-      if(layout)layout.enabled=false;
-      const journey=group.getChildByName('btn_JourneyLoading');
-      const classic=group.getChildByName('btn_Classics');
-      if(journey)journey.y=5;
-      if(classic)classic.y=-167;
-      credit.y=-339;
-      const community=cc.instantiate(credit);
-      community.name='WasmRipLink';
-      community.parent=group;
-      community.y=-511;
-      function link(node,url){
-        node.off('click');
-        node.getComponent(cc.Button).clickEvents=[];
-        node.on('click',()=>window.open(url,'_blank','noopener,noreferrer'));
-        for(const child of node.children)child.active=false;
+
+    cc.macro.ENABLE_WEBGL_ANTIALIAS = true;
+
+    // Customize the original main-menu buttons.
+    cc.director.on(cc.Director.EVENT_AFTER_UPDATE, () => {
+      const group = cc.find("persist/uiLayer/homePage/btn_layout");
+      const credit = group?.getChildByName("GameLobbyAddMoreGame");
+
+      if (!credit || credit._portLinked) return;
+      credit._portLinked = true;
+
+      const layout = group.getComponent(cc.Layout);
+      if (layout) layout.enabled = false;
+
+      const journey = group.getChildByName("btn_JourneyLoading");
+      const classic = group.getChildByName("btn_Classics");
+
+      if (journey) journey.y = 5;
+      if (classic) classic.y = -167;
+      credit.y = -339;
+
+      const community = cc.instantiate(credit);
+      community.name = "WasmRipLink";
+      community.parent = group;
+      community.y = -511;
+
+      function link(node, url) {
+        node.off("click");
+        node.getComponent(cc.Button).clickEvents = [];
+
+        node.on("click", () => {
+          window.open(url, "_blank", "noopener,noreferrer");
+        });
+
+        for (const child of node.children) {
+          child.active = false;
+        }
       }
-      link(credit,'https://github.com/dudeluther');
-      link(community,'https://dsc.gg/wasmrip');
-      cc.assetManager.loadRemote(assetURL('wasm-button.png'),{ext:'.png'},(error,texture)=>{
-        if(!error && cc.isValid(community))community.getComponent(cc.Sprite).spriteFrame=new cc.SpriteFrame(texture);
-      });
+
+      link(credit, "https://github.com/dudeluther");
+      link(community, "https://dsc.gg/wasmrip");
+
+      cc.assetManager.loadRemote(
+        assetURL("wasm-button.png"),
+        { ext: ".png" },
+        (error, texture) => {
+          if (!error && cc.isValid(community)) {
+            community.getComponent(cc.Sprite).spriteFrame =
+              new cc.SpriteFrame(texture);
+          }
+        }
+      );
     });
+
     window.boot();
   };
-  const returnToMenu=()=>{
-    if(window.storage)location.reload();
-  };
-  window.addEventListener('keydown',event=>{
-    if(event.key==='Escape'){event.preventDefault();event.stopImmediatePropagation();returnToMenu();}
-  },true);
-})();
 
+  window.addEventListener(
+    "keydown",
+    event => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        if (window.storage) {
+          location.reload();
+        }
+      }
+    },
+    true
+  );
+})();
 </script>
+
 <script>
-(async()=>{
- const base=new URL(window.BLOCK_BLAST_ASSET_BASE.replace(/\/?$/,'/'),location.href);
- document.getElementById('game-icon').href=new URL('icon.png',base);
- const script=path=>new Promise((resolve,reject)=>{
-  const el=document.createElement('script');el.src=new URL(path,base);el.crossOrigin='anonymous';
-  el.onload=resolve;el.onerror=()=>reject(new Error('Could not load '+el.src));document.head.appendChild(el);
- });
- for(const file of ['engine/cocos2d-js.js','src/settings.ca6e3.js','boot.js'])await script(file);
- await window.startBrowserPort();
-})().catch(error=>{
- const el=document.getElementById('fatal');el.textContent='Game loading failed.\n'+error.message+'\nCheck BLOCK_BLAST_ASSET_BASE and serve the HTML over HTTP(S).';el.style.display='block';
- console.error(error);
+(async () => {
+  const base = new URL(
+    window.BLOCK_BLAST_ASSET_BASE.replace(/\/?$/, "/"),
+    location.href
+  );
+
+  window.portAssetBlob(new URL("icon.png", base))
+    .then(url => {
+      document.getElementById("game-icon").href = url;
+    })
+    .catch(() => {});
+
+  async function loadScript(path) {
+    const blob = await window.portAssetBlob(new URL(path, base));
+
+    return new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = blob;
+      script.onload = resolve;
+
+      script.onerror = () => {
+        reject(new Error("Could not load " + path));
+      };
+
+      document.head.appendChild(script);
+    });
+  }
+
+  for (const file of [
+    "engine/cocos2d-js.js",
+    "src/settings.ca6e3.js",
+    "boot.js"
+  ]) {
+    await loadScript(file);
+  }
+
+  await window.startBrowserPort();
+})().catch(error => {
+  const element = document.getElementById("fatal");
+
+  element.textContent =
+    "Game loading failed.\n" +
+    error.message +
+    "\nCheck the asset URLs and serve this HTML over HTTP(S).";
+
+  element.style.display = "block";
+  console.error(error);
 });
 </script>
 </body>
