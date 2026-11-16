@@ -1,0 +1,279 @@
+
+gameplay_gl.png
+size: 993,834
+format: RGBA8888
+filter: MipMap,MipMap
+repeat: none
+caidai_1
+  rotate: true
+  xy: 678, 5
+  size: 44, 23
+  orig: 44, 23
+  offset: 0, 0
+  index: -1
+caidai_2
+  rotate: true
+  xy: 475, 12
+  size: 31, 28
+  orig: 31, 28
+  offset: 0, 0
+  index: -1
+caidai_3
+  rotate: false
+  xy: 507, 13
+  size: 28, 30
+  orig: 28, 30
+  offset: 0, 0
+  index: -1
+caidai_5
+  rotate: true
+  xy: 539, 13
+  size: 30, 19
+  orig: 30, 19
+  offset: 0, 0
+  index: -1
+caidai_6
+  rotate: false
+  xy: 446, 5
+  size: 25, 38
+  orig: 25, 38
+  offset: 0, 0
+  index: -1
+caidai_7
+  rotate: false
+  xy: 418, 4
+  size: 24, 39
+  orig: 24, 39
+  offset: 0, 0
+  index: -1
+caidai_8
+  rotate: true
+  xy: 705, 22
+  size: 27, 50
+  orig: 27, 50
+  offset: 0, 0
+  index: -1
+caihong
+  rotate: true
+  xy: 799, 232
+  size: 70, 119
+  orig: 171, 171
+  offset: 7, 26
+  index: -1
+guang_2
+  rotate: false
+  xy: 4, 14
+  size: 199, 200
+  orig: 199, 200
+  offset: 0, 0
+  index: -1
+jiangbei
+  rotate: false
+  xy: 179, 449
+  size: 361, 381
+  orig: 364, 390
+  offset: 3, 5
+  index: -1
+jiangbei_2
+  rotate: false
+  xy: 896, 4
+  size: 92, 106
+  orig: 92, 107
+  offset: 0, 1
+  index: -1
+light_add_b
+  rotate: false
+  xy: 784, 114
+  size: 114, 114
+  orig: 130, 130
+  offset: 8, 8
+  index: -1
+light_circle_d
+  rotate: true
+  xy: 799, 306
+  size: 162, 163
+  orig: 171, 171
+  offset: 5, 4
+  index: -1
+light_par_block_d
+  rotate: false
+  xy: 902, 140
+  size: 60, 60
+  orig: 76, 76
+  offset: 8, 8
+  index: -1
+light_par_star_a
+  rotate: false
+  xy: 784, 4
+  size: 108, 106
+  orig: 175, 175
+  offset: 33, 35
+  index: -1
+mask
+  rotate: true
+  xy: 544, 655
+  size: 28, 50
+  orig: 28, 50
+  offset: 0, 0
+  index: -1
+piaodai
+  rotate: true
+  xy: 60, 432
+  size: 398, 115
+  orig: 398, 115
+  offset: 0, 0
+  index: -1
+run_light
+  rotate: true
+  xy: 562, 14
+  size: 29, 59
+  orig: 31, 61
+  offset: 1, 1
+  index: -1
+word
+  rotate: true
+  xy: 351, 9
+  size: 234, 63
+  orig: 234, 64
+  offset: 0, 1
+  index: -1
+xl_saoguang/xl_saoguang_0
+  rotate: true
+  xy: 598, 659
+  size: 24, 26
+  orig: 800, 800
+  offset: 291, 556
+  index: -1
+xl_saoguang/xl_saoguang_1
+  rotate: true
+  xy: 625, 4
+  size: 45, 49
+  orig: 800, 800
+  offset: 290, 536
+  index: -1
+xl_saoguang/xl_saoguang_10
+  rotate: false
+  xy: 418, 47
+  size: 176, 196
+  orig: 800, 800
+  offset: 320, 394
+  index: -1
+xl_saoguang/xl_saoguang_11
+  rotate: false
+  xy: 346, 247
+  size: 169, 198
+  orig: 800, 800
+  offset: 340, 392
+  index: -1
+xl_saoguang/xl_saoguang_12
+  rotate: false
+  xy: 60, 228
+  size: 151, 200
+  orig: 800, 800
+  offset: 360, 390
+  index: -1
+xl_saoguang/xl_saoguang_13
+  rotate: false
+  xy: 207, 25
+  size: 140, 199
+  orig: 800, 800
+  offset: 372, 390
+  index: -1
+xl_saoguang/xl_saoguang_14
+  rotate: false
+  xy: 215, 246
+  size: 127, 199
+  orig: 800, 800
+  offset: 385, 390
+  index: -1
+xl_saoguang/xl_saoguang_15
+  rotate: false
+  xy: 519, 250
+  size: 112, 195
+  orig: 800, 800
+  offset: 400, 392
+  index: -1
+xl_saoguang/xl_saoguang_16
+  rotate: false
+  xy: 544, 457
+  size: 92, 188
+  orig: 800, 800
+  offset: 420, 397
+  index: -1
+xl_saoguang/xl_saoguang_17
+  rotate: false
+  xy: 769, 472
+  size: 62, 173
+  orig: 800, 800
+  offset: 450, 409
+  index: -1
+xl_saoguang/xl_saoguang_18
+  rotate: true
+  xy: 179, 433
+  size: 12, 17
+  orig: 800, 800
+  offset: 498, 558
+  index: -1
+xl_saoguang/xl_saoguang_2
+  rotate: false
+  xy: 922, 204
+  size: 67, 98
+  orig: 800, 800
+  offset: 290, 489
+  index: -1
+xl_saoguang/xl_saoguang_3
+  rotate: false
+  xy: 544, 687
+  size: 86, 143
+  orig: 800, 800
+  offset: 290, 446
+  index: -1
+xl_saoguang/xl_saoguang_4
+  rotate: false
+  xy: 835, 489
+  size: 106, 162
+  orig: 800, 800
+  offset: 290, 427
+  index: -1
+xl_saoguang/xl_saoguang_5
+  rotate: false
+  xy: 640, 471
+  size: 125, 174
+  orig: 800, 800
+  offset: 290, 416
+  index: -1
+xl_saoguang/xl_saoguang_6
+  rotate: false
+  xy: 635, 649
+  size: 143, 181
+  orig: 800, 800
+  offset: 290, 409
+  index: -1
+xl_saoguang/xl_saoguang_7
+  rotate: false
+  xy: 635, 267
+  size: 160, 186
+  orig: 800, 800
+  offset: 291, 404
+  index: -1
+xl_saoguang/xl_saoguang_8
+  rotate: true
+  xy: 784, 655
+  size: 175, 190
+  orig: 800, 800
+  offset: 292, 400
+  index: -1
+xl_saoguang/xl_saoguang_9
+  rotate: false
+  xy: 598, 53
+  size: 182, 193
+  orig: 800, 800
+  offset: 300, 397
+  index: -1
+zi
+  rotate: true
+  xy: 4, 218
+  size: 612, 52
+  orig: 612, 52
+  offset: 0, 0
+  index: -1

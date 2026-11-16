@@ -1,0 +1,1 @@
+{"paths":{"0":["algo",0],"1":["game-logic",1]},"types":["cc.Asset","cc.Prefab"],"uuids":["78ZT9GEXFGGJ8UPEistCWA","59wdbExsRNQb8uZTOlb28S"],"scenes":{},"redirect":[],"deps":[],"packs":{},"name":"Remote_wasm","importBase":"import","nativeBase":"native","debug":false,"isZip":false,"encrypted":false,"versions":{"import":[1,"62b69",0,"1f60d"],"native":[0,"c6b51"]}}

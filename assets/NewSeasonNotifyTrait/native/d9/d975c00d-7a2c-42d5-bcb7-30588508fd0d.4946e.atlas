@@ -1,0 +1,20 @@
+
+mosaic_roll.png
+size: 1183,477
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+page
+  rotate: true
+  xy: 2, 2
+  size: 473, 1024
+  orig: 473, 1024
+  offset: 0, 0
+  index: -1
+page_shadow
+  rotate: false
+  xy: 1028, 266
+  size: 153, 209
+  orig: 153, 237
+  offset: 0, 14
+  index: -1

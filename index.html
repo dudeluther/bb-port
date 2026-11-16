@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#293f7d">
+<link id="game-icon" rel="icon">
+<title>Block Blast! · port by dudeluther</title>
+<style>
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#18274e;font-family:Arial,sans-serif}
+body{display:flex;justify-content:center}
+#GameDiv{width:100%;height:100%;background:#3e5594}
+canvas{display:block;touch-action:none}
+#splash{position:fixed;inset:0;display:grid;place-content:center;color:white;text-align:center;background:#293f7d}
+#splash h1{font-size:38px;margin:0 0 24px;color:#ffd154}
+.progress-bar{height:8px;width:240px;background:#182953;border-radius:6px;overflow:hidden}
+.progress-bar span{display:block;height:100%;width:0;background:#ffb83c}
+#status{font-size:13px;color:#d4dcfa;margin-top:16px}
+#fatal{display:none;position:fixed;inset:20px;z-index:20;background:#19264e;color:#fff;padding:24px;white-space:pre-wrap;overflow:auto}
+</style>
+</head>
+<body>
+<div id="GameDiv"><canvas id="GameCanvas" tabindex="0"></canvas></div>
+<div id="splash"><h1>Block Blast!</h1><div class="progress-bar"><span></span></div><div id="status">Loading the game…</div></div>
+<pre id="fatal"></pre>
+<script>
+// Use a relative folder locally, or replace this with your jsDelivr asset URL.
+// Example: https://cdn.jsdelivr.net/gh/USERNAME/REPOSITORY@COMMIT/assets/
+window.BLOCK_BLAST_ASSET_BASE = "./assets/";
+</script>
+<script>
+(() => {
+  const configuredBase=window.BLOCK_BLAST_ASSET_BASE;
+  const assetBase=configuredBase?new URL(configuredBase.replace(/\/?$/,'/'),location.href).href:null;
+  const assetURL=path=>assetBase?new URL(path,assetBase).href:path;
+  let pointerType='mouse';
+  window.addEventListener('pointerdown',event=>{pointerType=event.pointerType;},true);
+  function installMouseDragging(){
+    const prototype=window.__require('BlocksProducerTouch').default.prototype;
+    if(prototype._portMouseDragging)return;
+    prototype._portMouseDragging=true;
+    const start=prototype.onTouchStart,move=prototype.onTouchMove;
+    const lift=prototype.performTapShift,adjust=prototype.changeSelectItemPos;
+    // Keep the point actually grabbed underneath the pointer, even while the
+    // tray piece grows to board size or the canvas/parent is scaled.
+    function align(controller,item){
+      const parent=item.parent;
+      const pointer=parent.convertToNodeSpaceAR(controller._portPointerWorld);
+      const grabbed=parent.convertToNodeSpaceAR(item.convertToWorldSpaceAR(controller._portGrabLocal));
+      item.setPosition(item.x+pointer.x-grabbed.x,item.y+pointer.y-grabbed.y);
+      controller._targetPosX=item.x;
+      controller._targetPosY=item.y;
+    }
+    prototype.onTouchStart=function(event){
+      this._portMouseDrag=pointerType!=='touch';
+      this._portPointerWorld=event.getLocation();
+      this._portGrabLocal=null;
+      const result=start.call(this,event);
+      const item=this._selectItem;
+      if(this._portMouseDrag && item){
+        this._portGrabLocal ||= item.convertToNodeSpaceAR(this._portPointerWorld);
+        this.stopTapShiftTween();
+        item.scaleX=item.scaleY=1;
+        align(this,item);
+      }
+      return result;
+    };
+    prototype.performTapShift=function(item,y){
+      if(!this._portMouseDrag)return lift.call(this,item,y);
+      this._portGrabLocal=item.convertToNodeSpaceAR(this._portPointerWorld);
+      item.scaleX=item.scaleY=1;
+      align(this,item);
+    };
+    prototype.onTouchMove=function(event){
+      if(this._portMouseDrag)this._portPointerWorld=event.getLocation();
+      return move.call(this,event);
+    };
+    prototype.changeSelectItemPos=function(item){
+      if(!this._portMouseDrag || !this._portGrabLocal)return adjust.call(this,item);
+      // This hook runs before the original board collision and drop-preview
+      // calculations, so the displayed piece and the placement agree.
+      align(this,item);
+    };
+  }
+  const log=console.log.bind(console), warn=console.warn.bind(console);
+  window.portDiagnostics={errors:[],startedAt:Date.now()};
+  window.addEventListener('error',e=>{window.portDiagnostics.errors.push(e.error?.stack||e.message);log('[Port error]',e.error?.stack||e.message);});
+  window.addEventListener('unhandledrejection',e=>{window.portDiagnostics.errors.push(String(e.reason?.stack||e.reason));log('[Port rejection]',e.reason?.stack||e.reason);});
+  // Retain diagnostics: the Android release bundle otherwise silences the console.
+  Object.defineProperty(console,'log',{get:()=>log,set:()=>{},configurable:true});
+  Object.defineProperty(console,'warn',{get:()=>warn,set:()=>{},configurable:true});
+  // Android analytics, promotions and cloud personalization have no browser host.
+  // Keep their optional requests local; the packaged game supplies defaults.
+  const offlineResponse=URL.createObjectURL(new Blob(['{"experimentDataMap":{}}'],{type:'application/json'}));
+  const open=XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open=function(method,url,...rest){
+    const target=new URL(url,location.href);
+    if(target.origin!==location.origin && !(assetBase && target.href.startsWith(assetBase))){url=offlineResponse;method='GET';}
+    return open.call(this,method,url,...rest);
+  };
+  window.startBrowserPort=async()=>{
+    const manifest=await fetch(assetURL('port-manifest.json')).then(r=>r.json());
+    const s=window._CCSettings;s.platform='web-mobile';s.server='';s.remoteBundles=[];
+    Object.assign(s.bundleVers,manifest.bundleVersions);
+    const load=cc.assetManager.loadBundle.bind(cc.assetManager);
+    const splitScriptLoads=new Map();
+    function preloadSplitScript(name){
+      if(splitScriptLoads.has(name))return splitScriptLoads.get(name);
+      const task=(async()=>{
+        const parts=await Promise.all(manifest.splitScripts[name].parts.map(async part=>{
+          const response=await fetch(assetURL(part));
+          if(!response.ok)throw new Error('Could not load script part: '+part);
+          return response.arrayBuffer();
+        }));
+        const url=URL.createObjectURL(new Blob(parts,{type:'text/javascript'}));
+        try{
+          await new Promise((resolve,reject)=>{
+            const script=document.createElement('script');script.src=url;
+            script.onload=()=>{script.remove();resolve();};
+            script.onerror=()=>{script.remove();reject(new Error('Could not initialize '+name));};
+            document.head.appendChild(script);
+          });
+        }finally{URL.revokeObjectURL(url);}
+      })();
+      splitScriptLoads.set(name,task);return task;
+    }
+    if(assetBase){
+      const loadScript=cc.assetManager.loadScript.bind(cc.assetManager);
+      cc.assetManager.loadScript=(urls,...args)=>loadScript((Array.isArray(urls)?urls:[urls]).map(url=>url.startsWith('src/')?assetURL(url):url),...args);
+    }
+    cc.assetManager.loadBundle=(name,options,callback)=>{
+      if(/^https?:/.test(name)&&name.includes('/remote/'))name=name.split('/').filter(Boolean).pop();
+      if(typeof options==='function'){callback=options;options={};}
+      options={...options};
+      if(manifest.bundleVersions[name])options.version=manifest.bundleVersions[name];
+      const bundleName=name;
+      if(assetBase && !/^https?:/.test(name))name=assetURL(name);
+      const begin=()=>load(name,options,(error,bundle)=>{
+        // The Android build skips its home screen until a progression flag is
+        // unlocked. On the browser, always start at the original mode menu.
+        if(!error && bundleName==='main'){
+          window.storage.setItem('intoModeChoice',true);
+          installMouseDragging();
+        }
+        callback?.(error,bundle);
+      });
+      if(manifest.splitScripts?.[bundleName])return preloadSplitScript(bundleName).then(begin,error=>callback?.(error));
+      return begin();
+    };
+    cc.macro.ENABLE_WEBGL_ANTIALIAS=true;
+    // Reuse the original Cocos buttons and their normal press animation.
+    cc.director.on(cc.Director.EVENT_AFTER_UPDATE,()=>{
+      const group=cc.find('persist/uiLayer/homePage/btn_layout');
+      const credit=group?.getChildByName('GameLobbyAddMoreGame');
+      if(!credit || credit._portLinked)return;
+      credit._portLinked=true;
+      const layout=group.getComponent(cc.Layout);
+      if(layout)layout.enabled=false;
+      const journey=group.getChildByName('btn_JourneyLoading');
+      const classic=group.getChildByName('btn_Classics');
+      if(journey)journey.y=5;
+      if(classic)classic.y=-167;
+      credit.y=-339;
+      const community=cc.instantiate(credit);
+      community.name='WasmRipLink';
+      community.parent=group;
+      community.y=-511;
+      function link(node,url){
+        node.off('click');
+        node.getComponent(cc.Button).clickEvents=[];
+        node.on('click',()=>window.open(url,'_blank','noopener,noreferrer'));
+        for(const child of node.children)child.active=false;
+      }
+      link(credit,'https://github.com/dudeluther');
+      link(community,'https://dsc.gg/wasmrip');
+      cc.assetManager.loadRemote(assetURL('wasm-button.png'),{ext:'.png'},(error,texture)=>{
+        if(!error && cc.isValid(community))community.getComponent(cc.Sprite).spriteFrame=new cc.SpriteFrame(texture);
+      });
+    });
+    window.boot();
+  };
+  const returnToMenu=()=>{
+    if(window.storage)location.reload();
+  };
+  window.addEventListener('keydown',event=>{
+    if(event.key==='Escape'){event.preventDefault();event.stopImmediatePropagation();returnToMenu();}
+  },true);
+})();
+
+</script>
+<script>
+(async()=>{
+ const base=new URL(window.BLOCK_BLAST_ASSET_BASE.replace(/\/?$/,'/'),location.href);
+ document.getElementById('game-icon').href=new URL('icon.png',base);
+ const script=path=>new Promise((resolve,reject)=>{
+  const el=document.createElement('script');el.src=new URL(path,base);el.crossOrigin='anonymous';
+  el.onload=resolve;el.onerror=()=>reject(new Error('Could not load '+el.src));document.head.appendChild(el);
+ });
+ for(const file of ['engine/cocos2d-js.js','src/settings.ca6e3.js','boot.js'])await script(file);
+ await window.startBrowserPort();
+})().catch(error=>{
+ const el=document.getElementById('fatal');el.textContent='Game loading failed.\n'+error.message+'\nCheck BLOCK_BLAST_ASSET_BASE and serve the HTML over HTTP(S).';el.style.display='block';
+ console.error(error);
+});
+</script>
+</body>
+</html>

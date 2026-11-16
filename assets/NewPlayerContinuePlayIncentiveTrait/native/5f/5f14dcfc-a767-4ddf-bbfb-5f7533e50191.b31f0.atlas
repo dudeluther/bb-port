@@ -1,0 +1,13 @@
+
+gameplay_enhance.png
+size: 49,80
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/icon_enhance
+  rotate: false
+  xy: 2, 2
+  size: 45, 76
+  orig: 45, 76
+  offset: 0, 0
+  index: -1

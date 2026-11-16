@@ -1,0 +1,55 @@
+
+gameplay_xiaokuai.png
+size: 512,256
+format: RGBA8888
+filter: MipMap,MipMap
+repeat: none
+images/474
+  rotate: true
+  xy: 4, 97
+  size: 125, 124
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+images/cube_effect_blue
+  rotate: false
+  xy: 4, 23
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+images/cube_effect_green
+  rotate: false
+  xy: 78, 23
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+images/cube_effect_orange
+  rotate: false
+  xy: 132, 152
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+images/cube_effect_purple
+  rotate: false
+  xy: 152, 78
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+images/cube_effect_red
+  rotate: false
+  xy: 206, 152
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+images/cube_effect_yellow
+  rotate: false
+  xy: 152, 4
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1

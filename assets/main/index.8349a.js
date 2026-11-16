@@ -1,0 +1,1 @@
+/* Original bundle is loaded from verified parts by the browser adapter. */

@@ -1,0 +1,223 @@
+
+gameplay_clear.png
+size: 1024,512
+format: RGBA8888
+filter: MipMap,MipMap
+repeat: none
+2
+  rotate: false
+  xy: 4, 302
+  size: 192, 192
+  orig: 192, 192
+  offset: 0, 0
+  index: -1
+ef_xx
+  rotate: false
+  xy: 4, 13
+  size: 116, 110
+  orig: 400, 400
+  offset: 140, 144
+  index: -1
+gameplay_img_05
+  rotate: true
+  xy: 533, 140
+  size: 177, 162
+  orig: 182, 168
+  offset: 3, 3
+  index: -1
+images/ef_sx
+  rotate: false
+  xy: 533, 26
+  size: 116, 110
+  orig: 400, 400
+  offset: 140, 144
+  index: -1
+lizi2_blue
+  rotate: false
+  xy: 853, 70
+  size: 18, 18
+  orig: 20, 20
+  offset: 1, 1
+  index: -1
+lizi2_cyan
+  rotate: false
+  xy: 853, 50
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+lizi2_green
+  rotate: false
+  xy: 831, 4
+  size: 18, 18
+  orig: 20, 20
+  offset: 1, 1
+  index: -1
+lizi2_orange
+  rotate: false
+  xy: 831, 48
+  size: 18, 18
+  orig: 20, 20
+  offset: 1, 1
+  index: -1
+lizi2_pink
+  rotate: false
+  xy: 681, 74
+  size: 14, 15
+  orig: 960, 1707
+  offset: 473, 846
+  index: -1
+lizi2_purple
+  rotate: false
+  xy: 681, 55
+  size: 14, 15
+  orig: 16, 17
+  offset: 1, 1
+  index: -1
+lizi2_red
+  rotate: false
+  xy: 831, 70
+  size: 18, 18
+  orig: 20, 20
+  offset: 1, 1
+  index: -1
+lizi2_yellow
+  rotate: false
+  xy: 831, 26
+  size: 18, 18
+  orig: 20, 20
+  offset: 1, 1
+  index: -1
+lizi_blue
+  rotate: false
+  xy: 831, 92
+  size: 24, 24
+  orig: 26, 26
+  offset: 1, 1
+  index: -1
+lizi_cyan
+  rotate: false
+  xy: 831, 120
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+lizi_green
+  rotate: false
+  xy: 653, 9
+  size: 24, 24
+  orig: 26, 26
+  offset: 1, 1
+  index: -1
+lizi_orange
+  rotate: false
+  xy: 653, 65
+  size: 24, 24
+  orig: 26, 26
+  offset: 1, 1
+  index: -1
+lizi_pink
+  rotate: true
+  xy: 653, 93
+  size: 43, 39
+  orig: 45, 41
+  offset: 1, 1
+  index: -1
+lizi_purple
+  rotate: true
+  xy: 699, 297
+  size: 20, 21
+  orig: 22, 23
+  offset: 1, 1
+  index: -1
+lizi_yellow
+  rotate: false
+  xy: 653, 37
+  size: 24, 24
+  orig: 26, 26
+  offset: 1, 1
+  index: -1
+png/xian2
+  rotate: false
+  xy: 913, 10
+  size: 90, 377
+  orig: 256, 512
+  offset: 83, 109
+  index: -1
+shang
+  rotate: false
+  xy: 4, 214
+  size: 525, 84
+  orig: 537, 537
+  offset: 5, 448
+  index: -1
+xia
+  rotate: false
+  xy: 200, 409
+  size: 526, 85
+  orig: 537, 537
+  offset: 6, 4
+  index: -1
+xian
+  rotate: false
+  xy: 1007, 171
+  size: 8, 216
+  orig: 10, 220
+  offset: 1, 2
+  index: -1
+xin
+  rotate: false
+  xy: 124, 38
+  size: 96, 85
+  orig: 96, 86
+  offset: 0, 1
+  index: -1
+yuan
+  rotate: false
+  xy: 124, 38
+  size: 96, 85
+  orig: 96, 86
+  offset: 0, 1
+  index: -1
+xin2
+  rotate: true
+  xy: 730, 294
+  size: 200, 179
+  orig: 206, 184
+  offset: 3, 3
+  index: -1
+xingxing1
+  rotate: false
+  xy: 913, 391
+  size: 103, 103
+  orig: 128, 128
+  offset: 13, 12
+  index: -1
+xingxing2
+  rotate: true
+  xy: 699, 25
+  size: 119, 128
+  orig: 125, 128
+  offset: 6, 0
+  index: -1
+xingxing3
+  rotate: true
+  xy: 699, 148
+  size: 142, 131
+  orig: 150, 173
+  offset: 2, 9
+  index: -1
+you
+  rotate: true
+  xy: 200, 321
+  size: 84, 525
+  orig: 537, 537
+  offset: 448, 7
+  index: -1
+zuo
+  rotate: true
+  xy: 4, 127
+  size: 83, 525
+  orig: 537, 537
+  offset: 5, 6
+  index: -1

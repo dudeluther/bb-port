@@ -1,0 +1,1 @@
+{"paths":{"0":["ARCHITECTURE",0],"1":["data/proto/ModelFeatureData.d",0]},"types":["cc.TextAsset"],"uuids":["1dQ0EvrIdApKZZLSBsaI9w","50Add93DJFw7Ye5Yn5o3gd"],"scenes":{},"redirect":[],"deps":[],"packs":{},"name":"modelFeature","importBase":"import","nativeBase":"native","debug":false,"isZip":false,"encrypted":false,"versions":{"import":[0,"2249d",1,"1fe06"],"native":[]}}

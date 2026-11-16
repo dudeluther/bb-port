@@ -1,0 +1,76 @@
+
+gameplay_XC_3ji_js.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+caiguang_11
+  rotate: false
+  xy: 2, 2
+  size: 240, 198
+  orig: 240, 198
+  offset: 0, 0
+  index: -1
+light_101
+  rotate: false
+  xy: 456, 312
+  size: 170, 170
+  orig: 170, 170
+  offset: 0, 0
+  index: -1
+light_102
+  rotate: false
+  xy: 628, 312
+  size: 170, 170
+  orig: 170, 170
+  offset: 0, 0
+  index: -1
+light_103
+  rotate: false
+  xy: 800, 312
+  size: 170, 170
+  orig: 170, 170
+  offset: 0, 0
+  index: -1
+light_104
+  rotate: false
+  xy: 284, 140
+  size: 170, 170
+  orig: 170, 170
+  offset: 0, 0
+  index: -1
+light_105
+  rotate: false
+  xy: 456, 140
+  size: 170, 170
+  orig: 170, 170
+  offset: 0, 0
+  index: -1
+light_106
+  rotate: false
+  xy: 284, 312
+  size: 170, 170
+  orig: 170, 170
+  offset: 0, 0
+  index: -1
+mb_35
+  rotate: false
+  xy: 972, 436
+  size: 47, 46
+  orig: 47, 46
+  offset: 0, 0
+  index: -1
+tx/1
+  rotate: false
+  xy: 2, 202
+  size: 280, 280
+  orig: 280, 280
+  offset: 0, 0
+  index: -1
+tx/bg_5_liZi_2
+  rotate: false
+  xy: 628, 269
+  size: 41, 41
+  orig: 41, 41
+  offset: 0, 0
+  index: -1

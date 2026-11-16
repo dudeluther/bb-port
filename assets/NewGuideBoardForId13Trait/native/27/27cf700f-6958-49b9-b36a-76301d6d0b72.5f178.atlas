@@ -1,0 +1,83 @@
+
+gameplay_eliminatePrompt_color.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bian2
+  rotate: false
+  xy: 10, 122
+  size: 848, 106
+  orig: 848, 106
+  offset: 0, 0
+  index: -1
+bian_cai
+  rotate: false
+  xy: 10, 494
+  size: 956, 212
+  orig: 956, 212
+  offset: 0, 0
+  index: -1
+bian_cai2
+  rotate: false
+  xy: 10, 238
+  size: 858, 116
+  orig: 956, 212
+  offset: 49, 48
+  index: -1
+bian_glow
+  rotate: false
+  xy: 10, 364
+  size: 862, 120
+  orig: 956, 212
+  offset: 47, 46
+  index: -1
+efx_liZi_1
+  rotate: false
+  xy: 882, 435
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
+efx_liZi_2
+  rotate: false
+  xy: 941, 435
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
+efx_liZi_3
+  rotate: false
+  xy: 882, 376
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
+efx_liZi_4
+  rotate: false
+  xy: 941, 376
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
+efx_liZi_5
+  rotate: false
+  xy: 882, 317
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
+efx_liZi_6
+  rotate: false
+  xy: 941, 317
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
+glow
+  rotate: false
+  xy: 10, 10
+  size: 844, 102
+  orig: 844, 102
+  offset: 0, 0
+  index: -1

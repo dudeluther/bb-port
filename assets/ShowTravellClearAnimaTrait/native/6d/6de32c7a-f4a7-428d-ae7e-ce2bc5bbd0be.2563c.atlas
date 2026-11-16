@@ -1,0 +1,202 @@
+
+unbelievable.png
+size: 488,521
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+9
+  rotate: false
+  xy: 443, 283
+  size: 37, 115
+  orig: 37, 115
+  offset: 0, 0
+  index: -1
+A1
+  rotate: false
+  xy: 279, 193
+  size: 79, 79
+  orig: 79, 79
+  offset: 0, 0
+  index: -1
+B1
+  rotate: false
+  xy: 279, 274
+  size: 75, 115
+  orig: 75, 115
+  offset: 0, 0
+  index: -1
+B2
+  rotate: true
+  xy: 139, 34
+  size: 74, 115
+  orig: 74, 115
+  offset: 0, 0
+  index: -1
+E1
+  rotate: false
+  xy: 298, 112
+  size: 66, 79
+  orig: 66, 79
+  offset: 0, 0
+  index: -1
+E2
+  rotate: false
+  xy: 226, 112
+  size: 70, 79
+  orig: 71, 79
+  offset: 0, 0
+  index: -1
+E3
+  rotate: true
+  xy: 256, 39
+  size: 71, 78
+  orig: 71, 78
+  offset: 0, 0
+  index: -1
+I1
+  rotate: false
+  xy: 437, 174
+  size: 32, 107
+  orig: 32, 107
+  offset: 0, 0
+  index: -1
+L1
+  rotate: false
+  xy: 366, 86
+  size: 31, 113
+  orig: 31, 113
+  offset: 0, 0
+  index: -1
+L2
+  rotate: true
+  xy: 139, 2
+  size: 30, 113
+  orig: 30, 113
+  offset: 0, 0
+  index: -1
+N1
+  rotate: false
+  xy: 399, 95
+  size: 70, 77
+  orig: 70, 77
+  offset: 0, 0
+  index: -1
+U1
+  rotate: false
+  xy: 356, 287
+  size: 85, 111
+  orig: 85, 111
+  offset: 0, 0
+  index: -1
+V1
+  rotate: true
+  xy: 360, 201
+  size: 84, 75
+  orig: 84, 75
+  offset: 0, 0
+  index: -1
+block_01
+  rotate: false
+  xy: 439, 61
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+glow/glow_00001
+  rotate: false
+  xy: 478, 493
+  size: 8, 26
+  orig: 192, 29
+  offset: 0, 2
+  index: -1
+glow/glow_00002
+  rotate: true
+  xy: 336, 91
+  size: 19, 28
+  orig: 192, 29
+  offset: 0, 0
+  index: -1
+glow/glow_00003
+  rotate: false
+  xy: 399, 64
+  size: 38, 29
+  orig: 192, 29
+  offset: 9, 0
+  index: -1
+glow/glow_00004
+  rotate: false
+  xy: 326, 8
+  size: 38, 29
+  orig: 192, 29
+  offset: 60, 0
+  index: -1
+glow/glow_00005
+  rotate: false
+  xy: 285, 8
+  size: 39, 29
+  orig: 192, 29
+  offset: 108, 0
+  index: -1
+glow/glow_00006
+  rotate: false
+  xy: 336, 55
+  size: 38, 29
+  orig: 192, 29
+  offset: 140, 0
+  index: -1
+glow/glow_00007
+  rotate: true
+  xy: 254, 2
+  size: 30, 29
+  orig: 192, 29
+  offset: 162, 0
+  index: -1
+glow/glow_00008
+  rotate: false
+  xy: 471, 252
+  size: 15, 29
+  orig: 192, 29
+  offset: 177, 0
+  index: -1
+glow/glow_00009
+  rotate: false
+  xy: 2, 4
+  size: 6, 19
+  orig: 192, 29
+  offset: 186, 0
+  index: -1
+ia_1000000094
+  rotate: true
+  xy: 2, 25
+  size: 494, 135
+  orig: 512, 139
+  offset: 16, 4
+  index: -1
+ia_100000016
+  rotate: true
+  xy: 226, 197
+  size: 192, 51
+  orig: 192, 51
+  offset: 0, 0
+  index: -1
+ia_1400000083
+  rotate: false
+  xy: 226, 391
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+ia_3200000058
+  rotate: false
+  xy: 356, 400
+  size: 120, 119
+  orig: 128, 128
+  offset: 4, 4
+  index: -1
+unbelievable
+  rotate: true
+  xy: 139, 110
+  size: 409, 85
+  orig: 415, 89
+  offset: 3, 1
+  index: -1

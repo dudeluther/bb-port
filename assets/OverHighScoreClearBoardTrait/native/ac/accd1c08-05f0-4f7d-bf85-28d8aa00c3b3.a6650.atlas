@@ -1,0 +1,76 @@
+
+gameplay_allchange_clear.png
+size: 243,114
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bk_g1
+  rotate: false
+  xy: 79, 66
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+bk_y1
+  rotate: false
+  xy: 114, 66
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+bk_p1
+  rotate: false
+  xy: 1, 79
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+bk_b1
+  rotate: false
+  xy: 208, 36
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+bk_d1
+  rotate: false
+  xy: 149, 66
+  size: 33, 33
+  orig: 34, 34
+  offset: 0, 1
+  index: -1
+bk_r1
+  rotate: false
+  xy: 36, 79
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+bk_o1
+  rotate: false
+  xy: 208, 1
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+light10
+  rotate: false
+  xy: 144, 1
+  size: 62, 63
+  orig: 63, 64
+  offset: 0, 0
+  index: -1
+light8
+  rotate: false
+  xy: 79, 1
+  size: 63, 63
+  orig: 64, 64
+  offset: 0, 1
+  index: -1
+light6
+  rotate: false
+  xy: 1, 1
+  size: 76, 76
+  orig: 76, 77
+  offset: 0, 1
+  index: -1

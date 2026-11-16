@@ -1,0 +1,27 @@
+
+check_net.png
+size: 949,154
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Check_text
+  rotate: false
+  xy: 1, 1
+  size: 664, 139
+  orig: 664, 139
+  offset: 0, 0
+  index: -1
+net
+  rotate: false
+  xy: 667, 1
+  size: 166, 132
+  orig: 166, 132
+  offset: 0, 0
+  index: -1
+line
+  rotate: false
+  xy: 835, 1
+  size: 112, 151
+  orig: 112, 151
+  offset: 0, 0
+  index: -1

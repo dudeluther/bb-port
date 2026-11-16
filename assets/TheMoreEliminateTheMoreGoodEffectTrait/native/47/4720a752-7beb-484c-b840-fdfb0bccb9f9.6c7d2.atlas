@@ -1,0 +1,181 @@
+
+gameplay_XC_3ji.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+111
+  rotate: false
+  xy: 735, 374
+  size: 149, 142
+  orig: 149, 142
+  offset: 0, 0
+  index: -1
+61
+  rotate: false
+  xy: 735, 518
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1
+caiguang_13
+  rotate: false
+  xy: 394, 122
+  size: 169, 169
+  orig: 169, 169
+  offset: 0, 0
+  index: -1
+caiguang_14
+  rotate: false
+  xy: 238, 790
+  size: 223, 223
+  orig: 223, 223
+  offset: 0, 0
+  index: -1
+caiguang_16
+  rotate: false
+  xy: 724, 224
+  size: 148, 148
+  orig: 148, 148
+  offset: 0, 0
+  index: -1
+caiguang_17
+  rotate: false
+  xy: 691, 838
+  size: 175, 175
+  orig: 175, 175
+  offset: 0, 0
+  index: -1
+caiguang_18
+  rotate: false
+  xy: 2, 779
+  size: 234, 234
+  orig: 234, 234
+  offset: 0, 0
+  index: -1
+caiguang_21
+  rotate: true
+  xy: 868, 851
+  size: 162, 154
+  orig: 162, 154
+  offset: 0, 0
+  index: -1
+caiguang_22
+  rotate: false
+  xy: 2, 130
+  size: 215, 205
+  orig: 215, 205
+  offset: 0, 0
+  index: -1
+caiguang_25
+  rotate: false
+  xy: 691, 670
+  size: 175, 166
+  orig: 175, 166
+  offset: 0, 0
+  index: -1
+caiguang_26
+  rotate: false
+  xy: 2, 557
+  size: 231, 220
+  orig: 231, 220
+  offset: 0, 0
+  index: -1
+caiguang_29
+  rotate: false
+  xy: 868, 676
+  size: 152, 173
+  orig: 152, 173
+  offset: 0, 0
+  index: -1
+caiguang_30
+  rotate: true
+  xy: 463, 809
+  size: 204, 226
+  orig: 204, 226
+  offset: 0, 0
+  index: -1
+caiguang_33
+  rotate: false
+  xy: 566, 468
+  size: 167, 167
+  orig: 167, 167
+  offset: 0, 0
+  index: -1
+caiguang_34
+  rotate: false
+  xy: 2, 337
+  size: 218, 218
+  orig: 218, 218
+  offset: 0, 0
+  index: -1
+light_101
+  rotate: false
+  xy: 463, 637
+  size: 170, 170
+  orig: 170, 170
+  offset: 0, 0
+  index: -1
+light_102
+  rotate: false
+  xy: 222, 385
+  size: 170, 170
+  orig: 170, 170
+  offset: 0, 0
+  index: -1
+light_103
+  rotate: false
+  xy: 222, 213
+  size: 170, 170
+  orig: 170, 170
+  offset: 0, 0
+  index: -1
+light_104
+  rotate: false
+  xy: 219, 41
+  size: 170, 170
+  orig: 170, 170
+  offset: 0, 0
+  index: -1
+light_105
+  rotate: false
+  xy: 394, 465
+  size: 170, 170
+  orig: 170, 170
+  offset: 0, 0
+  index: -1
+light_106
+  rotate: false
+  xy: 394, 293
+  size: 170, 170
+  orig: 170, 170
+  offset: 0, 0
+  index: -1
+mb_30
+  rotate: true
+  xy: 2, 2
+  size: 126, 142
+  orig: 126, 142
+  offset: 0, 0
+  index: -1
+mb_31
+  rotate: false
+  xy: 566, 175
+  size: 139, 139
+  orig: 139, 139
+  offset: 0, 0
+  index: -1
+mb_32
+  rotate: false
+  xy: 566, 316
+  size: 156, 150
+  orig: 156, 150
+  offset: 0, 0
+  index: -1
+mb_36c
+  rotate: false
+  xy: 887, 588
+  size: 86, 86
+  orig: 86, 86
+  offset: 0, 0
+  index: -1

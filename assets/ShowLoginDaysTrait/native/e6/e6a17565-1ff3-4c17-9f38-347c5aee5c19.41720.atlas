@@ -1,0 +1,27 @@
+
+main_days.png
+size: 381,255
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ef/glow
+  rotate: false
+  xy: 1, 1
+  size: 252, 252
+  orig: 252, 252
+  offset: 0, 0
+  index: -1
+ef/ef8
+  rotate: false
+  xy: 255, 1
+  size: 124, 128
+  orig: 124, 128
+  offset: 0, 0
+  index: -1
+ef/xl1
+  rotate: false
+  xy: 255, 131
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1

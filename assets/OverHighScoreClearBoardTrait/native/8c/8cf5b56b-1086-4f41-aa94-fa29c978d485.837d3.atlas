@@ -1,0 +1,48 @@
+
+gameplay_allchange_front.png
+size: 331,221
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+neo_y1
+  rotate: false
+  xy: 1, 111
+  size: 108, 108
+  orig: 108, 108
+  offset: 0, 0
+  index: -1
+neo_p1
+  rotate: false
+  xy: 221, 1
+  size: 108, 108
+  orig: 108, 108
+  offset: 0, 0
+  index: -1
+neo_b1
+  rotate: false
+  xy: 221, 111
+  size: 108, 108
+  orig: 108, 108
+  offset: 0, 0
+  index: -1
+neo_r1
+  rotate: false
+  xy: 1, 1
+  size: 108, 108
+  orig: 108, 108
+  offset: 0, 0
+  index: -1
+neo_g1
+  rotate: false
+  xy: 111, 111
+  size: 108, 108
+  orig: 108, 108
+  offset: 0, 0
+  index: -1
+neo_o1
+  rotate: false
+  xy: 111, 1
+  size: 108, 108
+  orig: 108, 108
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,293 @@
+
+settlment_title.png
+size: 993,961
+format: RGBA8888
+filter: MipMap,MipMap
+repeat: none
+DPJL_1
+  rotate: false
+  xy: 390, 228
+  size: 236, 177
+  orig: 244, 207
+  offset: 6, 26
+  index: -1
+DPJL_10
+  rotate: true
+  xy: 911, 905
+  size: 52, 78
+  orig: 52, 79
+  offset: 0, 0
+  index: -1
+DPJL_10_a
+  rotate: false
+  xy: 875, 160
+  size: 80, 82
+  orig: 80, 83
+  offset: 0, 1
+  index: -1
+DPJL_11
+  rotate: true
+  xy: 4, 4
+  size: 67, 78
+  orig: 67, 80
+  offset: 0, 1
+  index: -1
+DPJL_11_a
+  rotate: false
+  xy: 901, 330
+  size: 73, 77
+  orig: 75, 81
+  offset: 0, 2
+  index: -1
+DPJL_12
+  rotate: true
+  xy: 225, 15
+  size: 56, 88
+  orig: 56, 89
+  offset: 0, 1
+  index: -1
+DPJL_12_a
+  rotate: false
+  xy: 660, 4
+  size: 81, 103
+  orig: 81, 106
+  offset: 0, 2
+  index: -1
+DPJL_13
+  rotate: false
+  xy: 911, 789
+  size: 74, 112
+  orig: 77, 115
+  offset: 1, 2
+  index: -1
+DPJL_13_a
+  rotate: false
+  xy: 876, 77
+  size: 76, 79
+  orig: 76, 82
+  offset: 0, 1
+  index: -1
+DPJL_14
+  rotate: true
+  xy: 876, 31
+  size: 42, 105
+  orig: 44, 109
+  offset: 1, 2
+  index: -1
+DPJL_14_a
+  rotate: false
+  xy: 897, 494
+  size: 82, 86
+  orig: 82, 87
+  offset: 0, 1
+  index: -1
+DPJL_15
+  rotate: true
+  xy: 855, 246
+  size: 50, 98
+  orig: 52, 100
+  offset: 0, 1
+  index: -1
+DPJL_15_a
+  rotate: true
+  xy: 764, 44
+  size: 82, 108
+  orig: 83, 112
+  offset: 0, 2
+  index: -1
+DPJL_16
+  rotate: false
+  xy: 729, 570
+  size: 100, 108
+  orig: 102, 112
+  offset: 2, 2
+  index: -1
+DPJL_16_a
+  rotate: false
+  xy: 901, 411
+  size: 75, 79
+  orig: 75, 82
+  offset: 0, 1
+  index: -1
+DPJL_17
+  rotate: false
+  xy: 906, 584
+  size: 79, 104
+  orig: 81, 107
+  offset: 2, 1
+  index: -1
+DPJL_17_a
+  rotate: true
+  xy: 552, 6
+  size: 94, 104
+  orig: 97, 108
+  offset: 1, 2
+  index: -1
+DPJL_18_a
+  rotate: true
+  xy: 746, 246
+  size: 50, 105
+  orig: 51, 110
+  offset: 1, 1
+  index: -1
+DPJL_18a
+  rotate: false
+  xy: 911, 692
+  size: 73, 93
+  orig: 73, 100
+  offset: 0, 7
+  index: -1
+DPJL_19
+  rotate: false
+  xy: 86, 28
+  size: 135, 43
+  orig: 137, 45
+  offset: 1, 1
+  index: -1
+DPJL_19_a
+  rotate: true
+  xy: 630, 228
+  size: 68, 112
+  orig: 69, 115
+  offset: 1, 2
+  index: -1
+DPJL_19a
+  rotate: true
+  xy: 745, 4
+  size: 36, 105
+  orig: 36, 109
+  offset: 0, 2
+  index: -1
+DPJL_20_a
+  rotate: false
+  xy: 833, 603
+  size: 69, 86
+  orig: 72, 94
+  offset: 0, 1
+  index: -1
+DPJL_20a
+  rotate: false
+  xy: 648, 111
+  size: 112, 113
+  orig: 113, 116
+  offset: 0, 2
+  index: -1
+DPJL_21_A
+  rotate: false
+  xy: 764, 130
+  size: 107, 112
+  orig: 107, 114
+  offset: 0, 1
+  index: -1
+DPJL_9
+  rotate: true
+  xy: 436, 5
+  size: 95, 112
+  orig: 99, 114
+  offset: 2, 1
+  index: -1
+DPJL_9_a
+  rotate: true
+  xy: 320, 4
+  size: 96, 112
+  orig: 99, 114
+  offset: 1, 1
+  index: -1
+a1
+  rotate: false
+  xy: 602, 426
+  size: 291, 122
+  orig: 295, 126
+  offset: 2, 2
+  index: -1
+a2
+  rotate: false
+  xy: 320, 104
+  size: 324, 120
+  orig: 328, 122
+  offset: 2, 0
+  index: -1
+a3
+  rotate: false
+  xy: 630, 300
+  size: 267, 122
+  orig: 269, 124
+  offset: 1, 0
+  index: -1
+a4
+  rotate: false
+  xy: 4, 269
+  size: 382, 136
+  orig: 386, 137
+  offset: 2, 0
+  index: -1
+b1
+  rotate: false
+  xy: 4, 552
+  size: 721, 126
+  orig: 725, 130
+  offset: 2, 2
+  index: -1
+b2
+  rotate: false
+  xy: 4, 409
+  size: 594, 139
+  orig: 597, 142
+  offset: 2, 2
+  index: -1
+dpjl_3_1
+  rotate: true
+  xy: 4, 75
+  size: 190, 312
+  orig: 190, 312
+  offset: 0, 0
+  index: -1
+dpjl_4_1
+  rotate: false
+  xy: 743, 693
+  size: 164, 264
+  orig: 164, 264
+  offset: 0, 0
+  index: -1
+dpjl_5_1
+  rotate: false
+  xy: 320, 253
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+dpjl_6_1
+  rotate: false
+  xy: 743, 682
+  size: 7, 7
+  orig: 7, 7
+  offset: 0, 0
+  index: -1
+dpjl_7_1
+  rotate: false
+  xy: 602, 414
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+dpjl_8_1
+  rotate: false
+  xy: 754, 682
+  size: 7, 7
+  orig: 7, 7
+  offset: 0, 0
+  index: -1
+dpjl_9_1
+  rotate: false
+  xy: 746, 234
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+txt_HotStreakKeepGoing！
+  rotate: false
+  xy: 4, 682
+  size: 735, 275
+  orig: 739, 278
+  offset: 2, 1
+  index: -1

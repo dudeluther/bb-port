@@ -1,0 +1,48 @@
+
+nopixel_watersort_gameplay_btn_plus.png
+size: 437,322
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/anl
+  rotate: true
+  xy: 2, 140
+  size: 180, 150
+  orig: 180, 150
+  offset: 0, 0
+  index: -1
+images/liangl
+  rotate: true
+  xy: 154, 140
+  size: 180, 150
+  orig: 180, 150
+  offset: 0, 0
+  index: -1
+images/liangl 2_00000
+  rotate: false
+  xy: 2, 2
+  size: 163, 136
+  orig: 280, 280
+  offset: 57, 74
+  index: -1
+images/liangl_00000
+  rotate: false
+  xy: 167, 6
+  size: 155, 132
+  orig: 280, 280
+  offset: 63, 74
+  index: -1
+images/wd
+  rotate: true
+  xy: 306, 176
+  size: 144, 129
+  orig: 280, 280
+  offset: 68, 75
+  index: -1
+images/yj
+  rotate: true
+  xy: 324, 48
+  size: 126, 104
+  orig: 300, 300
+  offset: 87, 98
+  index: -1

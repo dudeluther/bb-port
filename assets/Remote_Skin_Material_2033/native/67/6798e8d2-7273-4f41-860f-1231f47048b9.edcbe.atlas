@@ -1,0 +1,55 @@
+
+gameplay_spine_blocklight_033.png
+size: 765,125
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cube_1_material_033
+  rotate: false
+  xy: 438, 3
+  size: 107, 120
+  orig: 107, 120
+  offset: 0, 0
+  index: -1
+cube_2_material_033
+  rotate: false
+  xy: 2, 2
+  size: 107, 121
+  orig: 107, 121
+  offset: 0, 0
+  index: -1
+cube_3_material_033
+  rotate: false
+  xy: 111, 2
+  size: 107, 121
+  orig: 107, 121
+  offset: 0, 0
+  index: -1
+cube_4_material_033
+  rotate: false
+  xy: 547, 3
+  size: 107, 120
+  orig: 107, 120
+  offset: 0, 0
+  index: -1
+cube_5_material_033
+  rotate: false
+  xy: 220, 2
+  size: 107, 121
+  orig: 107, 121
+  offset: 0, 0
+  index: -1
+cube_7_material_033
+  rotate: false
+  xy: 656, 3
+  size: 107, 120
+  orig: 107, 120
+  offset: 0, 0
+  index: -1
+kuai2
+  rotate: false
+  xy: 329, 3
+  size: 107, 120
+  orig: 107, 120
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,412 @@
+
+gameplay_combo_vfx.png
+size: 1000,957
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+blue1
+  rotate: false
+  xy: 2, 21
+  size: 67, 72
+  orig: 67, 72
+  offset: 0, 0
+  index: -1
+blue2
+  rotate: false
+  xy: 216, 515
+  size: 48, 56
+  orig: 48, 56
+  offset: 0, 0
+  index: -1
+green1
+  rotate: false
+  xy: 161, 514
+  size: 53, 57
+  orig: 53, 57
+  offset: 0, 0
+  index: -1
+green2
+  rotate: false
+  xy: 266, 515
+  size: 48, 56
+  orig: 48, 56
+  offset: 0, 0
+  index: -1
+guang2
+  rotate: true
+  xy: 2, 479
+  size: 476, 100
+  orig: 476, 100
+  offset: 0, 0
+  index: -1
+orange2
+  rotate: false
+  xy: 361, 523
+  size: 45, 48
+  orig: 45, 48
+  offset: 0, 0
+  index: -1
+pink1
+  rotate: false
+  xy: 408, 523
+  size: 45, 48
+  orig: 45, 48
+  offset: 0, 0
+  index: -1
+pink2
+  rotate: false
+  xy: 316, 515
+  size: 43, 56
+  orig: 43, 56
+  offset: 0, 0
+  index: -1
+pur1
+  rotate: false
+  xy: 71, 26
+  size: 63, 67
+  orig: 63, 67
+  offset: 0, 0
+  index: -1
+xinxin
+  rotate: false
+  xy: 2, 2
+  size: 17, 17
+  orig: 17, 17
+  offset: 0, 0
+  index: -1
+yellow1
+  rotate: false
+  xy: 104, 514
+  size: 55, 57
+  orig: 55, 57
+  offset: 0, 0
+  index: -1
+序列/kuang_00000
+  rotate: false
+  xy: 2, 351
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00001
+  rotate: false
+  xy: 2, 223
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00002
+  rotate: false
+  xy: 2, 95
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00003
+  rotate: false
+  xy: 104, 829
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00004
+  rotate: false
+  xy: 104, 701
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00005
+  rotate: false
+  xy: 104, 573
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00006
+  rotate: false
+  xy: 130, 386
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00007
+  rotate: false
+  xy: 130, 258
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00008
+  rotate: false
+  xy: 130, 130
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00009
+  rotate: false
+  xy: 136, 2
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00010
+  rotate: false
+  xy: 258, 387
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00011
+  rotate: false
+  xy: 258, 259
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00012
+  rotate: false
+  xy: 258, 131
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00013
+  rotate: false
+  xy: 264, 3
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00014
+  rotate: false
+  xy: 232, 829
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00015
+  rotate: false
+  xy: 232, 701
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00016
+  rotate: false
+  xy: 232, 573
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00017
+  rotate: false
+  xy: 360, 829
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00018
+  rotate: false
+  xy: 360, 701
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00019
+  rotate: false
+  xy: 360, 573
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00020
+  rotate: false
+  xy: 386, 395
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00021
+  rotate: false
+  xy: 386, 267
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00022
+  rotate: false
+  xy: 386, 139
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00023
+  rotate: false
+  xy: 392, 11
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00024
+  rotate: false
+  xy: 488, 829
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00025
+  rotate: false
+  xy: 488, 701
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00026
+  rotate: false
+  xy: 488, 573
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00027
+  rotate: false
+  xy: 514, 445
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00028
+  rotate: false
+  xy: 616, 829
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00029
+  rotate: false
+  xy: 616, 701
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00030
+  rotate: false
+  xy: 616, 573
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00031
+  rotate: false
+  xy: 514, 317
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00032
+  rotate: false
+  xy: 514, 189
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00033
+  rotate: false
+  xy: 520, 61
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00034
+  rotate: false
+  xy: 642, 445
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00035
+  rotate: false
+  xy: 642, 317
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00036
+  rotate: false
+  xy: 642, 189
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00037
+  rotate: false
+  xy: 648, 61
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00038
+  rotate: false
+  xy: 744, 829
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00039
+  rotate: false
+  xy: 744, 701
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00040
+  rotate: false
+  xy: 744, 573
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00041
+  rotate: false
+  xy: 770, 445
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00042
+  rotate: false
+  xy: 872, 829
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00043
+  rotate: false
+  xy: 872, 701
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00044
+  rotate: false
+  xy: 872, 573
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00045
+  rotate: false
+  xy: 770, 317
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+序列/kuang_00046
+  rotate: false
+  xy: 770, 189
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1

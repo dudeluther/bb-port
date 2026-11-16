@@ -1,0 +1,104 @@
+
+gameplay_qinping.png
+size: 434,509
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+baoshi/mb_17
+  rotate: false
+  xy: 1, 1
+  size: 106, 106
+  orig: 106, 106
+  offset: 0, 0
+  index: -1
+baoshi/mb_14
+  rotate: false
+  xy: 296, 433
+  size: 70, 66
+  orig: 70, 66
+  offset: 0, 0
+  index: -1
+baoshi/mb_13
+  rotate: false
+  xy: 223, 433
+  size: 71, 68
+  orig: 71, 68
+  offset: 0, 0
+  index: -1
+baoshi/mb_16
+  rotate: false
+  xy: 1, 433
+  size: 74, 74
+  orig: 74, 74
+  offset: 0, 0
+  index: -1
+baoshi/mb_11
+  rotate: false
+  xy: 151, 433
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+baoshi/mb_15
+  rotate: false
+  xy: 368, 433
+  size: 64, 72
+  orig: 64, 72
+  offset: 0, 0
+  index: -1
+baoshi/mb_12
+  rotate: false
+  xy: 77, 433
+  size: 72, 72
+  orig: 72, 72
+  offset: 0, 0
+  index: -1
+kuai/zi
+  rotate: false
+  xy: 109, 109
+  size: 106, 106
+  orig: 106, 106
+  offset: 0, 0
+  index: -1
+kuai/cheng
+  rotate: false
+  xy: 1, 217
+  size: 106, 106
+  orig: 106, 106
+  offset: 0, 0
+  index: -1
+kuai/hong
+  rotate: false
+  xy: 1, 109
+  size: 106, 106
+  orig: 106, 106
+  offset: 0, 0
+  index: -1
+kuai/lv
+  rotate: false
+  xy: 325, 1
+  size: 106, 106
+  orig: 106, 106
+  offset: 0, 0
+  index: -1
+kuai/qin
+  rotate: false
+  xy: 217, 1
+  size: 106, 106
+  orig: 106, 106
+  offset: 0, 0
+  index: -1
+kuai/huang
+  rotate: false
+  xy: 1, 325
+  size: 106, 106
+  orig: 106, 106
+  offset: 0, 0
+  index: -1
+kuai/lan
+  rotate: false
+  xy: 109, 1
+  size: 106, 106
+  orig: 106, 106
+  offset: 0, 0
+  index: -1

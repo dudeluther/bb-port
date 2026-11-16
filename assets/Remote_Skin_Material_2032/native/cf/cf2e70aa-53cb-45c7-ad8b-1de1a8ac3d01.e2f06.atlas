@@ -1,0 +1,27 @@
+
+gameplay_spine_blocklight_plan1_032.png
+size: 166,138
+format: RGBA8888
+filter: MipMap,MipMap
+repeat: none
+K
+  rotate: false
+  xy: 138, 86
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+K1
+  rotate: false
+  xy: 138, 110
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+glowK
+  rotate: false
+  xy: 4, 4
+  size: 130, 130
+  orig: 134, 134
+  offset: 2, 2
+  index: -1
